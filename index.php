@@ -1,5 +1,6 @@
 <?php
 $url = $_SERVER['REQUEST_URI'];
+//файл с роутами
 require_once('controllers/route.php');
 
 if (!isset($url) || !preg_match('/^[a-zA-Z0-9_\/]{1,20}$/',$url)) {
