@@ -1,12 +1,16 @@
 <?php
 $url = $_SERVER['REQUEST_URI'];
 //файл с роутами
-require_once('controllers/route.php');
-
+require_once('controllers/routings.php');
+require_once('controllers/Route_controller.php');
+/*
 if (!isset($url) || !preg_match('/^[a-zA-Z0-9_\/]{1,20}$/',$url)) {
 	exit('Invalid URL '.$url);
 }
-
+*/
+$route = new Route_controller($_SERVER['REQUEST_URI'], $routings);
+$route->go_to_route();
+/*
 //получаем адрес контроллера и имя метода из массива роутов
 foreach ($routings as $key => $route) {
 	$pattern = str_replace('/','\/',$route['route']);
@@ -55,4 +59,4 @@ if (substr_count($url,'/') == NO_PARAMS) {
 }
 
 //вызов искомой функции
-$controller_name::$function_name($params);
+$controller_name::$function_name($params);*/
