@@ -15,7 +15,8 @@ class Route_controller
 		$this->routings = $routings;
 	}
 
-
+	/**	собственно обработка роута
+	 */
 	public function go_to_route()
 	{
 		//проверка урл
